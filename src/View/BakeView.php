@@ -63,9 +63,7 @@ class BakeView extends TwigView
             mkdir($this->_tmpLocation);
         }
 
-        Configure::write(TwigView::ENV_CONFIG, [
-            'cache' => false,
-        ]);
+        $this->setConfig('environment.cache', false);
 
         parent::initialize();
     }
