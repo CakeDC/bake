@@ -25,7 +25,6 @@ use Cake\ORM\TableRegistry;
 
 /**
  * FixtureCommand Test
- *
  */
 class FixtureCommandTest extends TestCase
 {
@@ -34,7 +33,7 @@ class FixtureCommandTest extends TestCase
      *
      * @var array
      */
-    public $fixtures = [
+    protected $fixtures = [
         'core.Articles',
         'core.Comments',
         'plugin.Bake.Datatypes',

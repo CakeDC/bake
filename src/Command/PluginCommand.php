@@ -57,7 +57,7 @@ class PluginCommand extends BakeCommand
      *
      * @param \Cake\Console\Arguments $args The command arguments.
      * @param \Cake\Console\ConsoleIo $io The console io
-     * @return null|int The exit code or null for success
+     * @return int|null The exit code or null for success
      */
     public function execute(Arguments $args, ConsoleIo $io): ?int
     {
@@ -269,7 +269,7 @@ class PluginCommand extends BakeCommand
         $io->out('<info>Modifying composer autoloader</info>');
 
         $out = json_encode($config, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "\n";
-        $io->createFile($file, $out);
+        $io->createFile($file, $out, (bool)$args->getOption('force'));
 
         $composer = $this->findComposer($args, $io);
 

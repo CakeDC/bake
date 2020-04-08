@@ -17,7 +17,7 @@ declare(strict_types=1);
 namespace Bake\Test\TestCase\Command;
 
 use Bake\Test\TestCase\TestCase;
-use Cake\Console\Command;
+use Cake\Command\Command;
 use Cake\Core\Plugin;
 use Cake\Database\Driver\Mysql;
 use Cake\Database\Driver\Postgres;
@@ -39,7 +39,7 @@ class ModelCommandAssociationDetectionTest extends TestCase
      *
      * @var array
      */
-    public $fixtures = [
+    protected $fixtures = [
         'plugin.Bake.Categories',
         'plugin.Bake.CategoriesProducts',
         'plugin.Bake.OldProducts',

@@ -14,13 +14,25 @@ declare(strict_types=1);
  * @since     0.1.0
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
-namespace BakeTest\Controller;
-
-use Cake\Controller\Controller;
+namespace Bake\Test\App\Controller;
 
 /**
- * Class BakeTestAppController
+ * NoModelController class
  */
-class BakeTestAppController extends Controller
+class NoModelController extends AppController
 {
+    /**
+     * @var string
+     */
+    protected $modelClass = '';
+
+    /**
+     * Index method.
+     *
+     * @return void
+     */
+    public function index()
+    {
+        $this->set('test', 'value');
+    }
 }

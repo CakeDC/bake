@@ -18,7 +18,7 @@ namespace Bake\Test\TestCase\Command;
 
 use Bake\Test\TestCase\TestCase;
 use Bake\Utility\SubsetSchemaCollection;
-use Cake\Console\Command;
+use Cake\Command\Command;
 use Cake\Datasource\ConnectionManager;
 use Cake\ORM\TableRegistry;
 use Cake\Utility\Inflector;
@@ -33,7 +33,7 @@ class ModelAllCommandTest extends TestCase
      *
      * @var array
      */
-    public $fixtures = [
+    protected $fixtures = [
         'plugin.Bake.TodoTasks',
         'plugin.Bake.TodoItems',
     ];

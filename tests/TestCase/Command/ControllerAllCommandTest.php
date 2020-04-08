@@ -18,14 +18,13 @@ namespace Bake\Test\TestCase\Command;
 
 use Bake\Test\App\Model\Table\BakeArticlesTable;
 use Bake\Test\TestCase\TestCase;
-use Cake\Console\Command;
+use Cake\Command\Command;
 use Cake\Core\Plugin;
 use Cake\ORM\TableRegistry;
 use Cake\Utility\Inflector;
 
 /**
  * ControllerAllCommand test
- *
  */
 class ControllerAllCommandTest extends TestCase
 {
@@ -34,7 +33,7 @@ class ControllerAllCommandTest extends TestCase
      *
      * @var array
      */
-    public $fixtures = [
+    protected $fixtures = [
         'plugin.Bake.BakeArticles',
         'plugin.Bake.BakeComments',
     ];

@@ -19,8 +19,8 @@ namespace Bake\Test\TestCase\Command;
 use Bake\Command\ControllerCommand;
 use Bake\Test\App\Model\Table\BakeArticlesTable;
 use Bake\Test\TestCase\TestCase;
+use Cake\Command\Command;
 use Cake\Console\Arguments;
-use Cake\Console\Command;
 use Cake\Core\Plugin;
 use Cake\ORM\TableRegistry;
 
@@ -34,7 +34,7 @@ class ControllerCommandTest extends TestCase
      *
      * @var array
      */
-    public $fixtures = [
+    protected $fixtures = [
         'plugin.Bake.BakeArticles',
         'plugin.Bake.BakeArticlesBakeTags',
         'plugin.Bake.BakeComments',
@@ -355,6 +355,7 @@ class ControllerCommandTest extends TestCase
 
         $this->assertFileExists($this->generatedFile);
         $this->assertFileContains('namespace Company\Pastry\Controller;', $this->generatedFile);
+        $this->assertFileContains('use Company\Pastry\Controller\AppController;', $this->generatedFile);
         $this->assertFileContains('BakeArticlesController extends AppController', $this->generatedFile);
     }
 
@@ -375,6 +376,7 @@ class ControllerCommandTest extends TestCase
 
         $this->assertFileExists($this->generatedFile);
         $this->assertFileContains('namespace Company\Pastry\Controller;', $this->generatedFile);
+        $this->assertFileContains('use Company\Pastry\Controller\AppController;', $this->generatedFile);
         $this->assertFileContains('BakeArticlesController extends AppController', $this->generatedFile);
     }
 }

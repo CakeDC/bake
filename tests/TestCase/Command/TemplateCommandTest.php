@@ -18,8 +18,8 @@ namespace Bake\Test\TestCase\Command;
 
 use Bake\Command\TemplateCommand;
 use Bake\Test\TestCase\TestCase;
+use Cake\Command\Command;
 use Cake\Console\Arguments;
-use Cake\Console\Command;
 use Cake\Console\ConsoleIo;
 use Cake\Console\Exception\StopException;
 use Cake\Core\Configure;
@@ -37,7 +37,7 @@ class TemplateCommandTest extends TestCase
      *
      * @var array
      */
-    public $fixtures = [
+    protected $fixtures = [
         'core.Articles',
         'core.Tags',
         'core.ArticlesTags',

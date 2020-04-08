@@ -21,7 +21,7 @@ use Bake\Test\App\Controller\PostsController;
 use Bake\Test\App\Model\Table\ArticlesTable;
 use Bake\Test\App\Model\Table\CategoryThreadsTable;
 use Bake\Test\TestCase\TestCase;
-use Cake\Console\Command;
+use Cake\Command\Command;
 use Cake\Core\Plugin;
 use Cake\Http\Response;
 use Cake\Http\ServerRequest as Request;
@@ -29,7 +29,6 @@ use Cake\ORM\TableRegistry;
 
 /**
  * TestCommandTest class
- *
  */
 class TestCommandTest extends TestCase
 {
@@ -38,7 +37,7 @@ class TestCommandTest extends TestCase
      *
      * @var string
      */
-    public $fixtures = [
+    protected $fixtures = [
         'plugin.Bake.BakeArticles',
         'plugin.Bake.BakeArticlesBakeTags',
         'plugin.Bake.BakeComments',
@@ -209,7 +208,7 @@ class TestCommandTest extends TestCase
     {
         $command = new TestCommand();
         $result = $command->getTestableMethods('Bake\Test\App\Model\Table\ArticlesTable');
-        $expected = ['initialize', 'findpublished', 'dosomething', 'dosomethingelse'];
+        $expected = ['findpublished', 'dosomething', 'dosomethingelse'];
         $this->assertEquals($expected, array_map('strtolower', $result));
     }
 
@@ -435,6 +434,23 @@ class TestCommandTest extends TestCase
             ROOT . 'tests/TestCase/Controller/PostsControllerTest.php',
         ];
         $this->exec('bake test controller PostsController');
+
+        $this->assertExitCode(Command::CODE_SUCCESS);
+        $this->assertFilesExist($this->generatedFiles);
+        $this->assertSameAsFile(__FUNCTION__ . '.php', file_get_contents($this->generatedFiles[0]));
+    }
+
+    /**
+     * test baking controller test files
+     *
+     * @return void
+     */
+    public function testBakeControllerWithoutModelTest()
+    {
+        $this->generatedFiles = [
+            ROOT . 'tests/TestCase/Controller/NoModelControllerTest.php',
+        ];
+        $this->exec('bake test controller NoModelController');
 
         $this->assertExitCode(Command::CODE_SUCCESS);
         $this->assertFilesExist($this->generatedFiles);

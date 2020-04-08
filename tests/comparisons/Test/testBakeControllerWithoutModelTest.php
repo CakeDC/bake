@@ -3,27 +3,18 @@ declare(strict_types=1);
 
 namespace Bake\Test\App\Test\TestCase\Controller;
 
-use Bake\Test\App\Controller\PostsController;
+use Bake\Test\App\Controller\NoModelController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * Bake\Test\App\Controller\PostsController Test Case
+ * Bake\Test\App\Controller\NoModelController Test Case
  *
- * @uses \Bake\Test\App\Controller\PostsController
+ * @uses \Bake\Test\App\Controller\NoModelController
  */
-class PostsControllerTest extends TestCase
+class NoModelControllerTest extends TestCase
 {
     use IntegrationTestTrait;
-
-    /**
-     * Fixtures
-     *
-     * @var array
-     */
-    protected $fixtures = [
-        'app.Posts',
-    ];
 
     /**
      * Test index method
